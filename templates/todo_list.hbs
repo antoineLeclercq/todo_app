@@ -1,0 +1,34 @@
+<section>
+  <header>
+    <h1>{{category}}</h1>
+    <p class="count">{{count}}</p>
+  </header>
+  <p><a class="add" href="#">Add new to do</a></p>
+  <div class="container">
+    <ul>
+    {{#each todos}}
+      <li data-id="{{id}}"
+      {{#if isCompleted}}
+      class="todo checked"
+      {{else}}
+      class="todo"
+      {{/if}}
+      >
+        <form class="check" action="#" method="post">
+          <label class="box">
+            <input type="submit">
+          </label>
+        </form>
+        <label class="todo_label">
+          {{name}} - {{category}}
+        </label>
+        <form class="delete" action="#" method="post">
+          <label>
+            <input type="submit">
+          </label>
+        </form>
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+</section>
