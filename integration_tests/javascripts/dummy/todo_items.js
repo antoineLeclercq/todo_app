@@ -3,19 +3,20 @@ var todoItems = [{
   day: '12',
   month: '04',
   year: '2017',
+  isCompleted: true,
   description: 'buy milk'
 }, {
   name: 'call mom',
   day: '',
-  month: '04',
+  month: '07',
   year: '2017',
   description: 'say hi to mom',
-  isCompleted: true,
 }, {
   name: '',
   day: '',
   month: '',
   year: '2017',
+  isCompleted: true,
   description: '',
 }, {
   name: 'foo',
@@ -32,8 +33,9 @@ var todoItems = [{
 }, {
   name: '',
   day: '',
-  month: '13',
+  month: '12',
   year: '2020',
+  isCompleted: true,
   description: '',
 }];
 
