@@ -15,11 +15,29 @@ module.exports = function (grunt) {
           'javascripts/vendor/all.js': ['javascripts/vendor/all.js'],
         }
       }
+    },
+    handlebars: {
+      all: {
+        files: {
+          'javascripts/handlebars_templates.js': ['templates/*.hbs']
+        },
+        options: {
+          processContent: function(content) {
+            content = content.replace(/^[\x20\t]+/mg, '').replace(/[\x20\t]+$/mg, '');
+            content = content.replace(/^[\r\n]+/, '').replace(/[\r\n]*$/, '\n');
+            return content;
+          },
+          processName: function (filePath) {
+            return filePath.match(/\/(.+).hbs$/).pop();
+          },
+        },
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-bower-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-  grunt.registerTask('default', ['bower_concat', 'uglify']);
+  grunt.registerTask('default', ['bower_concat', 'uglify', 'handlebars']);
 };
