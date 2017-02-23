@@ -41,17 +41,17 @@ var TodoListView = Backbone.View.extend({
   },
   render: function (categoryAndParent) {
     var todos;
+
     if (categoryAndParent && categoryAndParent.category) {
       this.category = categoryAndParent.category;
       todos = this.getTodosForCategory(categoryAndParent.parentCategory);
     } else {
       todos = this.getTodosForCategory();
     }
-    console.log(categoryAndParent, this.category);
 
     this.$el.html(this.template({
       category: this.category,
-      count: this.collection.length,
+      count: todos.length,
       todos: todos,
     }));
   },
