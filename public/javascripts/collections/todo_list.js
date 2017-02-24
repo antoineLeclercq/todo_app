@@ -23,7 +23,7 @@ var TodoList = Backbone.Collection.extend({
   },
   initialize: function () {
     this.readStorage();
-    this.on('change update', this.setStorage, this);
+    $(window).on('unload', this.setStorage.bind(this));
     this.on('change update', this.sort);
     this.comparator = 'isCompleted';
     this.sort();
